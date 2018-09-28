@@ -28,7 +28,7 @@ public class LoginController {
                         Map<String,Object> map, HttpSession loginSession) {
         if (!StringUtils.isEmpty(username) && "123456".equals(password)) {
             //登录成功，防止表单重复提交，可以重定向到主页
-            loginSession.setAttribute("loginUser","username");
+            loginSession.setAttribute("loginUser",username);
             return "redirect:/main.html";
         } else {
             map.put("msg","用户名密码错误");
