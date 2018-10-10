@@ -2,11 +2,14 @@ package per.wq.springboot.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.format.Formatter;
+import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import per.wq.springboot.component.LoginHandlerInterceptor;
+import per.wq.springboot.component.MyFormatter;
 import per.wq.springboot.component.MyLocaleResolver;
 
 /**
@@ -46,6 +49,7 @@ public class myMvcConfig implements WebMvcConfigurer {
                 registry.addInterceptor(new LoginHandlerInterceptor()).addPathPatterns("/**")
                         .excludePathPatterns("/index.html","/","/user/login","/asserts/**","/webjars/**");
          }
+
         };
         return adapter;
     }
